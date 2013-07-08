@@ -1,5 +1,7 @@
--- declare our protocol
+-- This software is licensed under the GPL v2 license, as published by the FSF
+-- http://www.gnu.org/licenses/gpl-2.0.txt
 
+-- declare our protocol
 asa_dataplane_proto = Proto("asa_dataplane","Cisco ASA Dataplane Protocol");
 
 -- create a function to dissect it
