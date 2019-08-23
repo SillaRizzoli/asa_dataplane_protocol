@@ -50,7 +50,7 @@ function asa_dataplane_proto.dissector(buffer,pinfo,tree)
     end
 end
 -- register our new protocol
-local ethertype_table = DissectorTable.get("ethertype")
+local ethertype_table = DissectorTable.get("eth_maybefcs")
 ethertype_table:add(0x855e,asa_dataplane_proto)
 
 
