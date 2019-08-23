@@ -42,7 +42,7 @@ function asa_dataplane_proto.dissector(buffer,pinfo,tree)
     	subtree = subtree:add(buffer(16,4),"Bytes 17-20: Unknown meaning - Observed values: 0x00. Actual value: 0x".. buffer(16,4))
     end
     
-    local eth_dis = Dissector.get("eth")
+    local eth_dis = Dissector.get("eth_maybefcs")
     if length == 4 then
     	eth_dis:call(buffer(16):tvb(), pinfo, tree)
     elseif length == 5 then
@@ -50,7 +50,7 @@ function asa_dataplane_proto.dissector(buffer,pinfo,tree)
     end
 end
 -- register our new protocol
-local ethertype_table = DissectorTable.get("eth_maybefcs")
+local ethertype_table = DissectorTable.get("ethertype")
 ethertype_table:add(0x855e,asa_dataplane_proto)
 
 
